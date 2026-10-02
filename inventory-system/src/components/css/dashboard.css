@@ -1,0 +1,689 @@
+
+
+.employee-dashboard-container, 
+.manager-dashboard-container, 
+.admin-dashboard-container {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif !important;
+    height: 100vh;
+    
+}
+/*Loading*/
+.loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+/*Greetings Container*/
+.greetings-container{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #1f2eb4;
+  padding: 15px 20px;
+  color: white;
+}
+/*Flex Container*/
+.header-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    
+}
+
+/*Filter Section*/
+.logout-button-container button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 10px;
+}
+.filter-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    width: 95%;
+    margin: auto;
+    margin-bottom: 10px;
+}
+.employee-filter{
+  display: flex;
+  gap: 10px;
+}
+.filter-container-admin{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 95%;
+    margin: auto;
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+.filter-container-admin div, .filter-container-inputs{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.manage-accounts-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 10px;
+}
+.filterInput:focus, #categoryFilter:focus {
+    outline: none;
+    border-color: #3182ce; /* Change to your desired focus color */
+    box-shadow: 0 0 0 1px #3182ce; /* Optional: adds a subtle shadow */
+}
+.filterInput{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+#categoryFilter {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/*Adjust Quantity Button Section*/
+.view-history-button{
+   display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.adjust-quantity-container {
+  background-color: #eaeaeb;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 8px;
+}
+.adjust-quantity-input{
+  padding: 5px;
+  border: 1px solid #e5e7eb;
+}
+.adjust-quantity-container button{
+  padding: 5px 20px;
+  border: 1px solid #e5e7eb;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.adjust-quantity-input:focus{
+  border-color: #e5e7eb;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+.button-input-container{
+  display: flex;
+  gap: 10px;
+  padding-top: 10px;
+
+}
+.icon{
+    width: 20px;
+    display: flex;
+}
+.buttonMenu{
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*Table Section*/
+.table-container{
+    width: 95%;
+    margin: auto;
+    
+    margin-bottom: 20px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+th,
+td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+th {
+  background-color: #d5d5d6;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 600;
+  
+}
+
+td {
+  color: #4b5563;
+  font-size: 14px;
+}
+
+/* Hover effect */
+tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+/* Remove border from the last row */
+tr:last-child td {
+  border-bottom: none;
+}
+/* Round the actual corner cells instead */
+thead tr:first-child th:first-child {
+  border-top-left-radius: 8px;
+}
+thead tr:first-child th:last-child {
+  border-top-right-radius: 8px;
+}
+tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 8px;
+}
+tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 8px;
+}
+
+/* Row Actions Menu */
+.actionCell {
+  position: relative;
+}
+.rowActionsMenu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 4px;
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 4px;
+  z-index: 10;
+  list-style: none;
+  margin: 0;
+}
+
+.action {
+  list-style-type: none;
+}
+
+.action button {
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  background-color: white;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  border-radius: 4px;
+  font-size: 14px;
+  text-align: left;
+}
+
+.action button:hover {
+  background-color: #f9fafb;
+}
+
+/*Edit Modal*/
+.edit-container {
+  background-color: white;
+  border-radius: 8px;
+  padding: 24px;
+  width: 90%;
+  max-width: 450px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.item p {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  margin: 0;
+}
+
+.item input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.item input:focus {
+  outline: none;
+  border-color: #3182ce;
+  box-shadow: 0 0 0 1px #3182ce;
+}
+
+.edit-buttons-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.edit-buttons-container button {
+  padding: 10px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background: white;
+  border: 1px solid #ccc;
+  color: #374151;
+}
+
+.cancel-btn:hover {
+  background-color: #f9fafb;
+}
+
+.save-btn {
+  background-color: #1f2eb4;
+  border: none;
+  color: white;
+}
+
+.save-btn:hover {
+  background-color: #1a26a0;
+}
+/* Modal overlay - the dark backdrop */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+/* The actual history box */
+.history-container{
+  background-color: white;
+  border-radius: 8px;
+  padding: 24px;
+  width: 90%;
+  max-width: 900px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.history-container h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: #1f2937;
+}
+.history-container{
+  font-family: Arial, sans-serif;
+}
+.history-container p{
+  padding: 50px;
+  text-align: center;
+}
+.history-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 16px;
+}
+
+.history-container th,
+.history-container td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 14px;
+}
+
+.history-container th {
+  background-color: #f3f4f6;
+  color: #374151;
+  font-weight: 600;
+}
+
+.history-container button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #1f2eb4;
+  color: white;
+}
+
+
+/* Manage Accounts*/
+
+.manage-accounts-container {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: white;
+  border-radius: 8px;
+  padding: 24px;
+  width: 90%;
+  max-width: 1300px;
+  height: 85vh; /* fixed height, not max-height — stays constant regardless of content */
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+.search-accounts-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0px;
+  flex-shrink: 0;
+}
+
+.accounts-container {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+.accounts-filter{
+  display: flex ;
+  align-items: center ;
+  gap: 10px;
+}
+.accounts-filter input{
+  border: 1px solid black;
+  padding: 10px ;
+  border-radius: 4px;
+}
+.accounts-filter select{
+  padding: 10px;
+  border-radius: 4px;
+}
+.close-container {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  flex-shrink: 0;
+}
+.close-container button{
+  margin-top: 10px;
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #1f2eb4;
+  color: white;
+}
+.add-account-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-btn{
+  padding: 10px 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #1f2eb4;
+  color: white;
+}
+.add-account-inputs-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 0;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.add-account-inputs-container input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  flex: 1;
+}
+
+.add-account-inputs-container input:focus {
+  outline: none;
+  border-color: #3182ce;
+  box-shadow: 0 0 0 1px #3182ce;
+}
+
+.add-account-inputs-container button, .add-item-button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #1f2eb4;
+  color: white;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.add-account-inputs-container button:hover {
+  background-color: #1a26a0;
+}
+.dropdown{
+  padding: 10px;
+  border-radius: 4px;
+  flex: 1;
+  border: 1px solid #ccc;
+}
+.dropdown:focus{
+   outline: none;
+  border-color: #3182ce;
+  box-shadow: 0 0 0 1px #3182ce;
+}
+
+.deleteButton{
+  width: 20px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.svg{
+  background-color: white;
+}
+
+.add-items-container {
+  background-color: white;
+  border-radius: 8px;
+  padding: 24px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.add-items-container input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.add-items-container input:focus {
+  outline: none;
+  border-color: #3182ce;
+  box-shadow: 0 0 0 1px #3182ce;
+}
+
+.add-items-container button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #1f2eb4;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.add-items-container button:hover {
+  background-color: #1a26a0;
+}
+.add-items-btn-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.add-items-btn-container button{
+  width: 100%;
+}
+
+/* ============================= */
+/* RESPONSIVE STYLES             */
+/* ============================= */
+
+/* Tablet and below */
+@media (max-width: 768px) {
+
+  /* Header/greeting */
+  .greetings-container {
+    padding: 12px 16px;
+    align-items: center;
+  }
+
+  .greetings-container h1 {
+    font-size: 20px;
+  }
+
+  /* Filter bars: stack instead of forcing everything on one line */
+  .filter-container,
+  .filter-container-admin,
+  .filter-container-inputs,
+  .employee-filter,
+  .filter-container-admin div {
+    flex-wrap: wrap;
+  }
+
+  .filter-container-admin {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filterInput,
+  #categoryFilter {
+    flex: 1;
+    min-width: 140px;
+  }
+
+  /* Table: allow horizontal scroll instead of squeezing columns */
+  .table-container {
+    width: 100%;
+    padding: 0 10px;
+    overflow-x: auto;
+  }
+
+  table {
+    min-width: 700px; /* forces scroll instead of cramming columns */
+  }
+
+  /* Modals: use more of the screen width, less padding */
+  .edit-container,
+  .history-container,
+  .add-items-container,
+  .manage-accounts-container {
+    width: 95%;
+    padding: 16px;
+  }
+
+  .manage-accounts-container {
+    height: 90vh;
+  }
+
+  /* Add Account form: stack inputs instead of one long row */
+  .add-account-inputs-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .add-account-inputs-container input,
+  .add-account-inputs-container select,
+  .add-account-inputs-container button {
+    width: 100%;
+  }
+
+  /* Search + Add button row in Manage Accounts */
+  .search-accounts-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .accounts-filter {
+    flex-wrap: wrap;
+  }
+  .add-account-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* Phone-sized screens */
+@media (max-width: 480px) {
+
+  .greetings-container {
+    padding: 12px 16px;
+    align-items: center;
+  }
+
+  .header-container {
+    margin-bottom: 20px;
+  }
+
+  /* Row actions menu: avoid overflowing off-screen on tiny widths */
+  .rowActionsMenu {
+    right: auto;
+    left: 0;
+  }
+
+  .edit-container,
+  .add-items-container {
+    max-width: 100%;
+  }
+
+  .edit-buttons-container,
+  .add-items-btn-container {
+    flex-direction: column;
+  }
+
+  .edit-buttons-container button,
+  .add-items-btn-container button {
+    width: 100%;
+  }
+}
