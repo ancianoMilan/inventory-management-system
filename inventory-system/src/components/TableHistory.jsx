@@ -26,7 +26,7 @@ function TableHistory({ history, onClose, role }) {
                         <td>{entry.previousValue}</td>
                         <td>{entry.newValue}</td>
                         <td>{new Date(entry.timestamp).toLocaleString()}</td>
-                        <td>{role}</td>
+                        <td>{entry.changedBy}</td>
                     </tr>
                     ))}
                 </tbody>

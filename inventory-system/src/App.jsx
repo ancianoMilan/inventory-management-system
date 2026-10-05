@@ -119,6 +119,7 @@ function App() {
           previousValue: oldValue,
           newValue: newValue,
           timestamp: new Date().toISOString(),
+          changedBy: role,
         });
       }
     });
